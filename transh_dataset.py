@@ -16,9 +16,6 @@ train_dataloader = TrainDataLoader(
 	neg_ent = 25,
 	neg_rel = 0)
 
-# dataloader for test
-test_dataloader = TestDataLoader("./benchmarks/FB15K237/", "link")
-
 # define the model
 transh = TransH(
 	ent_tot = train_dataloader.get_ent_tot(),
