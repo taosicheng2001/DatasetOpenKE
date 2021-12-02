@@ -13,12 +13,13 @@
 !git clone https://github.com/tusenchun/DatasetOpenKE.git
 
 3. 把DatasetOpenKE 放到openke下面
-!cp DatasetOpenKE OpenKE/
+!cp DatasetOpenKE -r OpenKE/
 
 4. 把DatasetOpkenKE中的 transh_dataset.py 放到外面
 !cd OpenKE && cp DatasetOpenKE/transh_dataset.py ./ 
+
 5. 创建文件夹
-!cd OpenKE && mkdir checkopint
+!cd OpenKE && mkdir checkopint && ls
 
 6. 运行
 !python3 transh_dataset
