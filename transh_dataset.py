@@ -36,3 +36,4 @@ model = NegativeSampling(
 trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 1000, alpha = 0.5, use_gpu = True)
 trainer.run()
 transh.save_checkpoint('./checkpoint/transh.ckpt')
+transh.save_parameters('./embed.vec')
