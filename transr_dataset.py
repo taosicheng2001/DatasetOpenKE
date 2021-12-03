@@ -1,6 +1,6 @@
 import openke
 from openke.config import Trainer, Tester
-from openke.module.model import TransH
+from openke.module.model import TransR
 from openke.module.loss import MarginLoss
 from openke.module.strategy import NegativeSampling
 from openke.data import TrainDataLoader, TestDataLoader
@@ -17,7 +17,7 @@ train_dataloader = TrainDataLoader(
 	neg_rel = 0)
 
 # define the model
-transh = TransH(
+transr = TransR(
 	ent_tot = train_dataloader.get_ent_tot(),
 	rel_tot = train_dataloader.get_rel_tot(),
 	dim = 200, 
@@ -26,7 +26,7 @@ transh = TransH(
 
 # define the loss function
 model = NegativeSampling(
-	model = transh, 
+	model = transr, 
 	loss = MarginLoss(margin = 4.0),
 	batch_size = train_dataloader.get_batch_size()
 )
@@ -35,5 +35,5 @@ model = NegativeSampling(
 # train the model
 trainer = Trainer(model = model, data_loader = train_dataloader, train_times = 1000, alpha = 0.5, use_gpu = True)
 trainer.run()
-transh.save_checkpoint('./transh.ckpt')
-transh.save_parameters('./transh_embed.vec')
+transr.save_checkpoint('./transr.ckpt')
+transr.save_parameters('./trans_embed.vec')
