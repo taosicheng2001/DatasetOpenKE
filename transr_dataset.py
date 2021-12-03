@@ -20,9 +20,11 @@ train_dataloader = TrainDataLoader(
 transr = TransR(
 	ent_tot = train_dataloader.get_ent_tot(),
 	rel_tot = train_dataloader.get_rel_tot(),
-	dim = 200, 
+	dim_e = 200,
+	dim_r = 200, 
 	p_norm = 1, 
-	norm_flag = True)
+	norm_flag = True,
+	rand_init = False)
 
 # define the loss function
 model = NegativeSampling(
